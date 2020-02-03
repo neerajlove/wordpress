@@ -44,7 +44,7 @@ function twentytwenty_get_starter_content() {
 		'posts'       => array(
 			'front' => array(
 				'post_type'    => 'page',
-				'post_title'   => __( 'This is the change i have made', 'twentytwenty' ),
+				'post_title'   => __( 'hi this is te cange i have made', 'twentytwenty' ),
 				// Use the above featured image with the predefined about page.
 				'thumbnail'    => '{{image-opening}}',
 				'post_content' => join(
