@@ -8,7 +8,7 @@
 
 /**
  * neeraj`:Tells WordPress to load the WordPress theme and output it.
- *
+ * cccccccccccccccccccccccccccccccccccccccccccccc
  * @var bool
  */
 define( 'WP_USE_THEMES', true );
