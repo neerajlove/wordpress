@@ -1,0 +1,76 @@
+Document for Rudy Rail 
+
+Step 1:To Find Rudy version and Bundled version go to the project folder 
+    >> cat Gemfile.lock
+Step 2:How to Find database go to the 
+     >>config folder >>database.yml
+Step 3: How to find a  secrets key 
+      >>config folder >>secrets.yml
+Step 4 : How to find environment
+       >>config/environments$ 
+Step 5 :All the dependencies 
+      >> Gemfile.lock
+
+Step 6:
+create a Docker file on a project folder with the name Dockerfile
+ **The app will run inside a Docker container containing its dependencies. Defining dependencies is done using a file called Dockerfile
+
+       >>FROM ruby:2.6.5
+       >>ARG RAILS_ENV
+       >>RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/u$
+       >>RUN apt-get update -qq
+# APT Cleanup
+       >>RUN rm -rf /var/lib/apt/lists/* \
+        && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
+        && apt-get clean
+       >>RUN mkdir /project
+       COPY Gemfile Gemfile.lock /project/
+       WORKDIR /project
+       >>RUN gem install pkg-config
+
+       >>RUN gem install bundler -v '2.0.1'
+       >>RUN bundle --version
+       >>RUN bundle install
+       >>COPY . /project
+       >>RUN bundle exec rake assets:precompile
+       >>CMD ["rails", "server"]
+
+That’ll put your application code inside an image that builds a container with Ruby, Bundler and all your dependencies inside
+
+Step 7 :
+Next, create a docker-compose.yml file using nano 
+
+This file describes the services that comprise your app a database and a web app), how to get each one’s Docker image (the database 
+just runs on a pre-made PostgreSQL image, and the web app is built from the current directory), and the configuration needed to link
+them together and expose the web app’s port.
+
+     >>set version 
+     >>set  environment
+        - RAILS_ENV
+        - RAILS_SERVE_STATIC_FILES
+        - DB_NAME
+        - DB_HOST
+        - DB_USERNAME
+        - DB_PASSWORD
+        - DB_PORT
+        - SECRET_KEY_BASE
+     >>port
+     >>restart
+
+     Step 8:
+          create a .env file 
+          >>To set RAILS_ENV
+          >>DB_HOST
+          >>DB_NAME
+          >>DB_USERNAME
+          >>DB_PASSWORD
+          >>DB_PORT
+          >>RAILS_SERVE_STATIC_FILES
+          >>SECRET_KEY_BASE
+
+    Step 9: go to the directory and enter the command
+           >> sudo docker-compose up 
+
+    If it is working then go to the browser and type ip address of the system and 
+    port number that is given in the docker-compose.yml file       
+    
