@@ -24,3 +24,4 @@ git clone https://github.com/neerajlove/wordpress.git
    51  git add testing.py 
    52  git commit -m checkh 
    53  git push origin feature/test
+git config --global user.name "FIRST_NAME LAST_NAME"
