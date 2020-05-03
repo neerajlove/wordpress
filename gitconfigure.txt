@@ -1,0 +1,26 @@
+git clone https://github.com/neerajlove/wordpress.git
+   29  git remote add origin https://github.com/neerajlove/wordpress.git
+   30  git remote -v
+   31  ls -la
+   32  cd wordpress
+   33  ls -la
+   34  git remote -v
+   35  git branch list
+   36  git branch 
+   37  git branch  list
+   38  git configure
+   39  git configure --help
+   40  ls -la
+   41  touch testing/py
+   42  touch testing.py
+   43  echo print("hello-world") >> testing.py 
+   44  echo "print("hello-world")" >> testing.py 
+   45  git add testing.py 
+   46  git checkout uat
+   47  git pull origin uat
+   48  git checkout uat
+   49  git pull origin uat
+   50  git checkout -b feature/test
+   51  git add testing.py 
+   52  git commit -m checkh 
+   53  git push origin feature/test
